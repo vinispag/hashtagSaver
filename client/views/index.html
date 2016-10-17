@@ -1,30 +1,56 @@
 <!DOCTYPE html>
-<html ng-app="hashtagSaver"> 
+<html > 
   <head>
       <meta charset="utf-8">
       <meta http-equiv="X-UA-Compatible" content="IE=edge">
-      <title></title>
+      <title>HashtagSaver</title>
       <meta name="description" content="">
       <meta name="viewport" content="width=device-width, initial-scale=1">
+      <link rel='stylesheet prefetch' href='https://cdn.gitcdn.link/cdn/angular/bower-material/v1.1.1/angular-material.css'>
+      <link rel='stylesheet prefetch' href='https://material.angularjs.org/1.1.1/docs.css'>
+      <link rel="stylesheet" href="css/style.css">
   </head>
-  <body>
+  
+  <body ng-app="hashtagSaver" ng-controller="hashtagController" class="bdy">
 
       <!-- Meetups View -->
-      <div ng-controller="hashtagController">
-        <h1>There are {{hashtag.length}} hashtags</h1>
-        <ul>
-          <li ng-repeat="hasht in hashtag">
-            {{hasht.name}}
-          </li>
-        </ul>
-        <form ng-submit="createHashtag()">
-          <input type="text" placeholder="tag" ng-model="hashtagName"></input>
-          <button type="submit">Add</button>
-        </form> 
+      <div layout="column" layout-padding="" ng-cloak="" class="inputdemoIcons input3">
+      <div class="input2">
+      <md-content class="md-no-momentum">
+        <h3 class="title3">HASHTAG SAVER</h3>
+        
+        <md-input-container class="md-block">
+          <md-icon class="tag"><b>#</b></md-icon>
+          <input ng-model="hashtagName"  placeholder="InstagramTag" ng-required="true" class="input">
+          <md-icon class="md-button" ng-click="createHashtag()" aria-label="Search" <i class="material-icons">search</i></md-icon>
+          <md-icon class="md-button" ng-click="createHashtag()" aria-label="Save" <i class="material-icons">add</i></md-icon>
+        </md-input-container>
+        </md-content>
+      </div>
+      <div ng-cloak="" class="listdemoListControls list1" >
+        <md-list>
+        <md-subheader class="md-no-sticky subh">Hashtags Saved</md-subheader>
+        <br>
+        <md-list-item ng-repeat="hasht in hashtag" class="noright">
+          {{hasht.name}}
+          <md-icon class="md-secondary" aria-label="Delete" <i class="material-icons">close</i></md-icon>  
+          <br>
+        </md-list-item>
+        </md-list>
+        </div>
       </div>
 
-      <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/angularjs/1.2.16/angular.js"></script>
-      <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/angularjs/1.2.16/angular-resource.js"></script>
+      <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+      <script src='https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.5.8/angular.min.js'></script>
+
+      <script src='https://ajax.googleapis.com/ajax/libs/angularjs/1.2.25/angular-resource.min.js'></script>
+      <script src='https://ajax.googleapis.com/ajax/libs/angularjs/1.5.5/angular-route.min.js'></script>
+      <script src='https://ajax.googleapis.com/ajax/libs/angularjs/1.5.5/angular-animate.min.js'></script>
+      <script src='https://ajax.googleapis.com/ajax/libs/angularjs/1.5.5/angular-aria.min.js'></script>
+      <script src='https://ajax.googleapis.com/ajax/libs/angularjs/1.5.5/angular-messages.min.js'></script>
+      <script src='https://s3-us-west-2.amazonaws.com/s.cdpn.io/t-114/svg-assets-cache.js'></script>
+      <script src='https://cdn.gitcdn.link/cdn/angular/bower-material/v1.1.1/angular-material.js'></script>
+
 
       <script type="text/javascript" src="/js/app.js"></script>
       <script type="text/javascript" src="/js/controllers/hashtag-controller.js"></script>

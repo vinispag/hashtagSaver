@@ -14,8 +14,8 @@
     width: 100%;
     float: right;
 }
-.title3{float: left;margin-left:10px;padding-top:15px;}
-.md-block{ width: 500px;float: right;margin-top:15px;}
+.title3{float: left;margin-left:10px; padding-top:15px;}
+.md-block{ width: 500px; float: right; margin-top:15px;}
   .inputdemoIcons md-input-container:not(.md-input-invalid) > md-icon.email {
     color: green; }
   .inputdemoIcons md-input-container:not(.md-input-invalid) > md-icon.name {
