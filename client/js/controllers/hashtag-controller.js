@@ -9,7 +9,7 @@ app.controller('hashtagController', ['$scope', '$resource', function ($scope, $r
 
   $scope.createHashtag = function () {
     var hashtag = new Hashtag();
-    hashtag.name = $scope.hashtagName;
+    hashtag.name = '#' + $scope.hashtagName;
     hashtag.$save(function (result) {
       $scope.hashtag.push(result);
       $scope.hashtagName = '';
