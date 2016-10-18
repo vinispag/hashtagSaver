@@ -1,5 +1,6 @@
+  
   #rudr_instafeed{
-  list-style:none  
+  list-style:none 
 }
 #rudr_instafeed li{
   float:left;
@@ -13,7 +14,7 @@
 }
 
   .input3 {
-    float:left;
+    float:left ;
     margin-top: 50px;
     margin-left: 0;
     margin-right: 0;
@@ -25,12 +26,13 @@
   }
 
   .input2 {
-
     width: 100%;
-    float: right;
+    float: left;
 }
+
 .title3{float: left;margin-left:10px; padding-top:15px;}
-.md-block{ width: 500px; float: right; margin-top:15px;}
+
+.md-block{ float: left;margin-left:20px; margin-top:15px;}
   .inputdemoIcons md-input-container:not(.md-input-invalid) > md-icon.email {
     color: green; }
   .inputdemoIcons md-input-container:not(.md-input-invalid) > md-icon.name {
@@ -44,8 +46,8 @@
     margin-top: 50px;
     margin-left: 0;
     margin-right: 0;
-    float:right;
-    width: 30%;}
+    float:left;
+    width: 25%;}
 
 .listdemoListControls md-divider {
   margin-top: 0;
@@ -57,11 +59,12 @@
 .listdemoListControls md-list-item{
   max-width:300px;
   margin-right: auto;
-   margin-left: auto;
+  margin-left: auto;
 }
 
 .subh{
   text-align: center;
+  margin: auto;
 }
 
 .listdemoListControls md-list-item > p,

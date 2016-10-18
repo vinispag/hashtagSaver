@@ -11,7 +11,6 @@
       <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
       <link rel="stylesheet" href="css/style.css">
   </head>
-  <body>
   <body ng-controller="hashtagController" class="bdy">
 
       <!-- Meetups View -->
@@ -21,7 +20,6 @@
         <h3 class="title3">HASHTAG SAVER</h3>
         
         <md-input-container class="md-block">
-          <md-icon class="tag"><b>#</b></md-icon>
           <input ng-model="hashtagName"  placeholder="InstagramTag" ng-required="true" class="input">
           <md-icon class="md-button" ng-click="getInsta(hashtagName)" aria-label="Search" <i class="material-icons">search</i></md-icon>
           <md-icon class="md-button" ng-click="createHashtag()" aria-label="Save" <i class="material-icons">add</i></md-icon>
@@ -32,15 +30,13 @@
       </div>
       <div ng-cloak="" class="listdemoListControls list1" >
         <md-list>
-        <md-subheader class="md-no-sticky subh">Hashtags Saved</md-subheader>
-        <md-list-item ng-repeat="hasht in hashtag" class="noright">
-          {{hasht.name}}
-          <md-icon class="md-secondary" ng-click="deleteHashtag(hasht._id, $index)" aria-label="Delete" <i class="material-icons">close</i></md-icon>  
+        <md-list-item class="md-no-sticky subh">Hashtags Saved</md-list-item>
+        <md-list-item ng-repeat="hasht in hashtag" class="noright md-button">
+          <p ng-click="getInsta(hasht.name)">{{hasht.name}}</p>
+          <md-icon class="md-secondary md-button" ng-click="deleteHashtag(hasht._id, $index)" aria-label="Delete" <i class="material-icons">X</i></md-icon> 
         </md-list-item>
         </md-list>
         </div>
-      
-      </body>
       
       <script src='https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.5.8/angular.min.js'></script>
       <script src='https://ajax.googleapis.com/ajax/libs/angularjs/1.2.25/angular-resource.min.js'></script>
@@ -51,7 +47,7 @@
       <script src='https://ajax.googleapis.com/ajax/libs/angularjs/1.5.5/angular-messages.min.js'></script>
       <script src='https://s3-us-west-2.amazonaws.com/s.cdpn.io/t-114/svg-assets-cache.js'></script>
       <script src='https://cdn.gitcdn.link/cdn/angular/bower-material/v1.1.1/angular-material.js'></script>
-
+      <script src="/bower_components/angular-animate/angular-animate.js"></script>
 
       <script type="text/javascript" src="/js/app.js"></script>
       <script type="text/javascript" src="/js/insta.js"></script>

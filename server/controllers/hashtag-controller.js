@@ -2,8 +2,15 @@ var Hashtag = require('../models/hashtag');
 
 module.exports.create = function (req, res) {
   var hashtag = new Hashtag(req.body);
-  hashtag.save(function (err, result) {
-    res.json(result);
+  Hashtag.count({name: req.body.name}, function (err, count) {
+    console.log(count);
+    if (count==0){
+      hashtag.save(function (err, result) {
+        res.json(result);
+      });
+    }
+    else 
+      res.json(0);
   });
 }
 
@@ -14,7 +21,6 @@ module.exports.list = function (req, res) {
 }
 
 module.exports.remove = function (req, res) {
- console.log(req.params.hashid);
   Hashtag.remove({_id: req.params.hashid}, function (err, results) {
   	if (err) throw err;
     res.json(results);
