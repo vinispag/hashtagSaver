@@ -1,21 +1,45 @@
 var tag = 'users/self';
 var url = window.location.href; 
 var token = Right(url, 51); //size of access token from instagram authentication
-var num_photos = 10;
+var num_photos = 20;
+var userID = 0;
 
 app.controller('hashtagController', ['$scope', '$resource', '$http', function ($scope, $resource) {
   var Hashtag = $resource('/api/hashtag');
   var HaID = $resource('/api/hashtag/:hashid', {hashid:'@id'});
-  
-  Hashtag.query(function (results) {
-    $scope.hashtag = results;
-    insta()
-  });
+  var UsID =$resource('/api/hashtag/:userid', {userid:'@id'});
+
+  $scope.getID = function(){
+    $.ajax({
+      url: 'https://api.instagram.com/v1/users/self/',
+      dataType: 'jsonp',
+      type: 'GET',
+      data: {access_token: token},
+      success: function(data){
+        console.log(data.data.id);
+        userID = data.data.id;
+        listHash();
+      },
+      error: function(data){
+        console.log(data);
+      }
+    });
+  }
+
+
+  listHash = function(){
+    UsID.query({userid: userID} , function (results) {
+      $scope.hashtag = results;
+      console.log('2');
+      insta();
+    });
+  }
 
   $scope.hashtag = []
 
   $scope.createHashtag = function () {
     var hashtag = new Hashtag();
+
     if (typeof($scope.hashtagName) == 'undefined')
       $scope.hashtagName='';
 
@@ -27,13 +51,15 @@ app.controller('hashtagController', ['$scope', '$resource', '$http', function ($
       hashtag.name = '#'
 
     if (hashtag.name.length > 1){
+      hashtag.userid = userID;
       hashtag.$save(function (result) {
-        console.log(result._id);
         if (result._id) {
           $scope.hashtag.push(result);
         }
-        $scope.hashtagName = '';
       });
+      tag = 'tags/' + $scope.hashtagName;
+      $scope.hashtagName = '';
+      console.log(tag);
       insta();
     }
   }
@@ -82,7 +108,6 @@ function insta(){
     type: 'GET',
     data: {access_token: token , count: num_photos},
     success: function(data){
-      console.log(data);
       for( x in data.data ){
         $('ul').append('<li><img src="'+data.data[x].images.low_resolution.url+'"></li>');
       }

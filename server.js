@@ -20,9 +20,8 @@ app.use(express.static(__dirname + '/node_modules'));
 app.use('/bower_components', express.static(__dirname + '/bower_components'));
 app.use(express.static(__dirname + '/app'));
 
-
 //REST API
-app.get('/api/hashtag', hashtagController.list);
+app.get('/api/hashtag/:userid', hashtagController.list);
 app.post('/api/hashtag', hashtagController.create);
 app.delete('/api/hashtag/:hashid', hashtagController.remove);
 

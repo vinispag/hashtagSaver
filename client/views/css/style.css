@@ -1,33 +1,32 @@
-  
-  #rudr_instafeed{
+#instafeed{
   list-style:none 
 }
-#rudr_instafeed li{
+#instafeed li{
   float:left;
   width:200px;
   height:200px;
   margin:10px
 }
-#rudr_instafeed li img{
+#instafeed li img{
   max-width:100%;
   max-height:100%;
 }
 
-  .input3 {
-    float:left ;
-    margin-top: 50px;
-    margin-left: 0;
-    margin-right: 0;
-    width: 70%;
-    }
-
-  .input {
-    max-width: 300px;
+.input3 {
+  float:left ;
+  margin-top: 50px;
+  margin-left: 0;
+  margin-right: 0;
+  width: 70%;
   }
 
-  .input2 {
-    width: 100%;
-    float: left;
+.input {
+  max-width: 300px;
+}
+
+.input2 {
+  width: 100%;
+  float: left;
 }
 
 .title3{float: left;margin-left:10px; padding-top:15px;}
@@ -41,13 +40,17 @@
   .inputdemoIcons md-input-container.md-input-invalid > md-icon.name {
     color: red; }
 
-  div.list1{
+div.list1{
 
-    margin-top: 50px;
-    margin-left: 0;
-    margin-right: 0;
-    float:left;
-    width: 25%;}
+  margin-top: 50px;
+  margin-left: 0;
+  margin-right: 0;
+  float:left;
+  width: 25%;}
+
+.ilist{
+   cursor: pointer; 
+}
 
 .listdemoListControls md-divider {
   margin-top: 0;
