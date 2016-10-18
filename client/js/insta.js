@@ -1,6 +1,7 @@
 var url = window.location.href; 
 var token = Right(url, 51);
-num_photos = 10;
+var num_photos = 10;
+var tag = 'integraas2016';
  
 function Right(str, n){
     if (n <= 0)
@@ -14,7 +15,7 @@ function Right(str, n){
 }
 
 $.ajax({
-	url: 'https://api.instagram.com/v1/users/'+ 'self' +'/media/recent',
+	url: 'https://api.instagram.com/v1/users/self/media/recent',
 	dataType: 'jsonp',
 	type: 'GET',
 	data: {access_token: token , count: num_photos},

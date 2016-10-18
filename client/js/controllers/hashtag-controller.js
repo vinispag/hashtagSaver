@@ -1,6 +1,7 @@
-app.controller('hashtagController', ['$scope', '$resource', function ($scope, $resource) {
+app.controller('hashtagController', ['$scope', '$resource', '$http', function ($scope, $resource,$http) {
   var Hashtag = $resource('/api/hashtag');
-
+  var HaID = $resource('/api/hashtag/:hashid', {hashid:'@id'});
+  
   Hashtag.query(function (results) {
     $scope.hashtag = results;
   });
@@ -15,4 +16,22 @@ app.controller('hashtagController', ['$scope', '$resource', function ($scope, $r
       $scope.hashtagName = '';
     });
   }
+
+  $scope.deleteHashtag = function (id, index) {
+    var hashtag = new HaID();
+    hashtag.$remove({hashid:id},function (result) {
+      $scope.hashtag.splice(index, 1);
+    });
+  }
+
+  $scope.delete2Hashtag = function (id, index) {
+
+  $http({
+      method: 'POST',
+      url: '/api/hashtag/'+ id,
+      headers: {'Content-Type': 'application/json;charset=utf-8'}
+  },$scope.hashtag.splice(index, 1));
+  }
+
+
 }]);

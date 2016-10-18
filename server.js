@@ -6,7 +6,8 @@ var express           = require('express'),
 
 mongoose.connect('mongodb://localhost:27017/hashtag');
 
-app.use(bodyParser());
+app.use(bodyParser.json());
+app.use(bodyParser.urlencoded({extended: true}));
 
 app.get('/', function (req, res) {
   res.sendfile(__dirname + '/client/views/index.html');
@@ -21,6 +22,7 @@ app.use(express.static(__dirname + '/app'));
 //REST API
 app.get('/api/hashtag', hashtagController.list);
 app.post('/api/hashtag', hashtagController.create);
+app.delete('/api/hashtag/:hashid', hashtagController.remove);
 
 app.listen(3000, function() {
   console.log('Server up');

@@ -12,3 +12,11 @@ module.exports.list = function (req, res) {
     res.json(results);
   });
 }
+
+module.exports.remove = function (req, res) {
+ console.log(req.params.hashid);
+  Hashtag.remove({_id: req.params.hashid}, function (err, results) {
+  	if (err) throw err;
+    res.json(results);
+  });
+}
