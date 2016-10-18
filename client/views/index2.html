@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html >
+  <head>
+    <meta charset="UTF-8">
+    <title>HashtagSaver</title>
+
+    <link rel='stylesheet prefetch' href='https://cdn.gitcdn.link/cdn/angular/bower-material/v1.1.1/angular-material.css'>
+<link rel='stylesheet prefetch' href='https://material.angularjs.org/1.1.1/docs.css'>
+
+        <link rel="stylesheet" href="css/style.css">
+    
+  </head>
+<body>
+    <body ng-app="hashtagSaver" class="bdy"> 
+  
+<div ng-controller="ListCtrl" layout="column" layout-padding="" ng-cloak="" class="inputdemoIcons input3" >
+<div class="input2">
+  <md-content class="md-no-momentum">
+      <h3 class="title3"><b> HASHTAG SAVER </b></h3>
+      
+      <md-input-container class="md-block">
+        <md-icon class="tag"><b>#</b></md-icon>
+        <input ng-model="tag"  placeholder="InstagramTag" ng-required="true" class="input">
+        <md-icon class="md-button" ng-click="doSecondaryAction($event)" aria-label="Search" <i class="material-icons">search</i></md-icon>
+        <md-icon class="md-button" ng-click="doSecondaryAction($event)" aria-label="Save" <i class="material-icons">add</i></md-icon>
+      </md-input-container>
+
+  </md-content>
+</div>
+</div>
+
+<div ng-controller="ListCtrl" ng-cloak="" class="listdemoListControls list1">
+<md-list>
+
+  <md-subheader class="md-no-sticky subh">Hashtags Saved</md-subheader>
+  <md-list-item ng-repeat="hasht in hashtag" ng-click="goToPerson(hasht.name, $event)" class="noright">
+    
+    <p>#{{ hasht.name }}</p>
+
+    <md-icon class="md-secondary" ng-click="doSecondaryAction($event)" aria-label="Delete" <i class="material-icons">close</i></md-icon>
+  </md-list-item>
+</md-list>
+</div>
+</body>
+<link href="https://fonts.googleapis.com/icon?family=Material+Icons"
+      rel="stylesheet">
+    <script src='https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.5.8/angular.min.js'></script>
+
+<script src='https://ajax.googleapis.com/ajax/libs/angularjs/1.2.25/angular-resource.min.js'></script>
+<script src='https://ajax.googleapis.com/ajax/libs/angularjs/1.5.5/angular-route.min.js'></script>
+<script src='https://ajax.googleapis.com/ajax/libs/angularjs/1.5.5/angular-animate.min.js'></script>
+<script src='https://ajax.googleapis.com/ajax/libs/angularjs/1.5.5/angular-aria.min.js'></script>
+<script src='https://ajax.googleapis.com/ajax/libs/angularjs/1.5.5/angular-messages.min.js'></script>
+<script src='https://s3-us-west-2.amazonaws.com/s.cdpn.io/t-114/svg-assets-cache.js'></script>
+<script src='https://cdn.gitcdn.link/cdn/angular/bower-material/v1.1.1/angular-material.js'></script>
+
+    
+    
+  </body>
+</html>
