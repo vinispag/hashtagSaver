@@ -2,7 +2,9 @@ var Hashtag = require('../models/hashtag');
 
 module.exports.create = function (req, res) {
   var hashtag = new Hashtag(req.body);
+  console.log('2');
   Hashtag.count({name: req.body.name, userid: req.body.userid}, function (err, count) {
+    console.log('3');
     if (count==0){
       hashtag.save(function (err, result) {
         res.json(result);
