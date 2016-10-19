@@ -59,7 +59,6 @@ app.controller('hashtagController', ['$scope', '$resource', '$http', function ($
         }
       });
       tag = 'tags/' + $scope.hashtagName;
-      $('input').attr('placeholder',$scope.hashtagName.replace('#','').replace(/ /g,''));
       $scope.hashtagName = '';
       console.log(tag);
       insta();
