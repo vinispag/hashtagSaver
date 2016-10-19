@@ -27,9 +27,11 @@ app.controller('hashtagController', ['$scope', '$resource', '$http', function ($
   }
 
   listHash = function(){
+    console.log('1l');
     UsID.query({userid: userID} , function (results) {
       $scope.hashtag = results;
       insta();
+      console.log('4l');
     });
   }
 
@@ -37,7 +39,7 @@ app.controller('hashtagController', ['$scope', '$resource', '$http', function ($
 
   $scope.createHashtag = function () {
     var hashtag = new Hashtag();
-    console.log('1');
+    console.log('1c');
     if (typeof($scope.hashtagName) == 'undefined')
       $scope.hashtagName='';
 
@@ -51,7 +53,7 @@ app.controller('hashtagController', ['$scope', '$resource', '$http', function ($
     if ($scope.hashtagName.length > 1){
       hashtag.userid = userID;
       hashtag.$save(function (result) {
-        console.log('4');
+        console.log('4c');
         if (result._id) {
           $scope.hashtag.push(result);
         }
@@ -62,12 +64,15 @@ app.controller('hashtagController', ['$scope', '$resource', '$http', function ($
       console.log(tag);
       insta();
     }
+    console.log('end');
   }
 
   $scope.deleteHashtag = function (id, index) {
     var hashtag = new HaID();
+    console.log('1r');
     hashtag.$remove({hashid:id},function (result) {
       $scope.hashtag.splice(index, 1);
+      console.log('4r');
     });
   }
 
