@@ -22,6 +22,7 @@ module.exports.list = function (req, res) {
   console.log('2l');
   Hashtag.find({userid: req.params.userid}, function (err, results) {
     res.json(results);
+    console.log(err);
     console.log('3l');
   });
 }
