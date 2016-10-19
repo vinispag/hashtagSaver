@@ -4,7 +4,7 @@ var express           = require('express'),
     mongoose          = require('mongoose'),
     hashtagController = require('./server/controllers/hashtag-controller');
 
-mongoose.connect('mongodb://hashUser:123@130.211.147.147:27017/hashtag');
+mongoose.connect('mongodb://root:password@130.211.147.147:27017/hashtag');
 
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({extended: true}));
