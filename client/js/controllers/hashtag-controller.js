@@ -18,6 +18,7 @@ app.controller('hashtagController', ['$scope', '$resource', '$http', function ($
       success: function(data){
         console.log(data.data.id);
         userID = data.data.id;
+        insta();
         listHash();
       },
       error: function(data){
@@ -52,10 +53,11 @@ app.controller('hashtagController', ['$scope', '$resource', '$http', function ($
 
     if ($scope.hashtagName.length > 1){
       hashtag.userid = userID;
+      $scope.hashtag.push(result);
       hashtag.$save(function (result) {
         console.log('4c');
         if (result._id) {
-          $scope.hashtag.push(result);
+          //$scope.hashtag.push(result);
         }
       });
       tag = 'tags/' + $scope.hashtagName;
@@ -70,8 +72,9 @@ app.controller('hashtagController', ['$scope', '$resource', '$http', function ($
   $scope.deleteHashtag = function (id, index) {
     var hashtag = new HaID();
     console.log('1r');
+    $scope.hashtag.splice(index, 1);
     hashtag.$remove({hashid:id},function (result) {
-      $scope.hashtag.splice(index, 1);
+      //$scope.hashtag.splice(index, 1);
       console.log('4r');
     });
   }
