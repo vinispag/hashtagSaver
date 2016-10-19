@@ -1,6 +1,6 @@
 var tag = 'users/self';
 var url = window.location.href; 
-var token = t(url, 51); //size of access token from instagram authentication
+var token = (url, 51); //size of access token from instagram authentication
 var num_photos = 20;
 var userID = 0;
 
