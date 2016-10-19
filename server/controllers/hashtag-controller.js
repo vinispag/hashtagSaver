@@ -7,6 +7,7 @@ module.exports.create = function (req, res) {
     console.log('count');
     if (count==0){
       hashtag.save(function (err, result) {
+        console.log(err);
         console.log('3c');
         res.json(result);
       });
