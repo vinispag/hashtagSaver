@@ -53,7 +53,7 @@ app.controller('hashtagController', ['$scope', '$resource', '$http', function ($
 
     if ($scope.hashtagName.length > 1){
       hashtag.userid = userID;
-      $scope.hashtag.push(result);
+      $scope.hashtag.push('#' + $scope.hashtagName);
       hashtag.$save(function (result) {
         console.log('4c');
         if (result._id) {
