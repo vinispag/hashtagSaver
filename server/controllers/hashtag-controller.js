@@ -4,7 +4,8 @@ module.exports.create = function (req, res) {
   var hashtag = new Hashtag(req.body);
   console.log('2c');
   Hashtag.count({name: req.body.name, userid: req.body.userid}, function (err, count) {
-    console.log('count');
+    console.log(err);
+    console.log("count "+count);
     if (count==0){
       hashtag.save(function (err, result) {
         console.log(err);
