@@ -1,6 +1,6 @@
 var tag = 'users/self';
 var url = window.location.href; 
-var token = (url, 51); //size of access token from instagram authentication
+var token = Right(url, 51); //size of access token from instagram authentication
 var num_photos = 20;
 var userID = 0;
 
@@ -16,8 +16,8 @@ app.controller('hashtagController', ['$scope', '$resource', '$http', function ($
       type: 'GET',
       data: {access_token: token},
       success: function(data){
-        console.log(data.id);
-        userID = data.id;
+        console.log(data.data.id);
+        userID = data.data.id;
         listHash();
       },
       error: function(data){
@@ -25,7 +25,6 @@ app.controller('hashtagController', ['$scope', '$resource', '$http', function ($
       }
     });
   }
-
 
   listHash = function(){
     UsID.query({userid: userID} , function (results) {
@@ -50,7 +49,7 @@ app.controller('hashtagController', ['$scope', '$resource', '$http', function ($
     else
       hashtag.name = '#'
 
-    if (hashtag.name.length > 1){
+    if ($scope.hashtagName.length > 1){
       hashtag.userid = userID;
       hashtag.$save(function (result) {
         if (result._id) {
@@ -58,8 +57,8 @@ app.controller('hashtagController', ['$scope', '$resource', '$http', function ($
         }
       });
       tag = 'tags/' + $scope.hashtagName;
-      $scope.hashtagName = '';
       $('input').attr('placeholder',$scope.hashtagName.replace('#','').replace(/ /g,''));
+      $scope.hashtagName = '';
       console.log(tag);
       insta();
     }
