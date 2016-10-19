@@ -1,9 +1,8 @@
 var tag = 'users/self';
 var url = window.location.href; 
-var token = '1311505251.1677ed0.cf1736ff3c7f4484a24c5698b47d06ca';//Right(url, 51); //size of access token from instagram authentication
+var token = t(url, 51); //size of access token from instagram authentication
 var num_photos = 20;
 var userID = 0;
-var codeInsta=Right(url, 32);;
 
 app.controller('hashtagController', ['$scope', '$resource', '$http', function ($scope, $resource) {
   var Hashtag = $resource('/api/hashtag');
@@ -60,6 +59,7 @@ app.controller('hashtagController', ['$scope', '$resource', '$http', function ($
       });
       tag = 'tags/' + $scope.hashtagName;
       $scope.hashtagName = '';
+      $('input').attr('placeholder',$scope.hashtagName.replace('#','').replace(/ /g,''));
       console.log(tag);
       insta();
     }
@@ -118,25 +118,3 @@ function insta(){
     }
   });
 }
-
-
-$.ajax({
-    url:'https://api.instagram.com/oauth/access_token',
-    dataType: 'jsonp',
-    type: 'GET',
-    data: {
-    client_id:' 96f6e81e08744b97970dd8943063113c',
-    client_secret:' 8d3874d10f6440bb929e0092977fabb6 ',
-    grant_type:'authorization_code',
-    redirect_uri: 'http://146.148.97.116/',
-    code: codeInsta
-    },
-    success: function(data){
-      console.log(data);
-      token = data.data.access_token;
-      insta();
-    },
-    error: function(data){
-      console.log(data);
-    }
- });
