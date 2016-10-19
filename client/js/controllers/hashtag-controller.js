@@ -16,8 +16,8 @@ app.controller('hashtagController', ['$scope', '$resource', '$http', function ($
       type: 'GET',
       data: {access_token: token},
       success: function(data){
-        console.log(data.data.id);
-        userID = data.data.id;
+        console.log(data.id);
+        userID = data.id;
         listHash();
       },
       error: function(data){
